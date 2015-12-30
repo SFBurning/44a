@@ -1,22 +1,23 @@
 cmake_minimum_required(VERSION 2.8.4)
 cmake_policy(SET CMP0042 NEW)
-project(44a)
-set(APP_NAME 44a)
-set(BUNDLE_NAME "44a")
+project(ofApplication)
+set(APP_NAME ofApplication)
+set(BUNDLE_NAME "ofApplication")
 
 # ===================== oF Directory =====================
-set(OF_DIRECTORY "/Users/jude/developer/of_v0.8.4_osx_release")
+set(OF_DIRECTORY "/YOUR/OF/DIRECTORY/HERE")
 # ========================================================
 
 # ===================== Compiler Flags =====================
 set(CMAKE_C_COMPILER "/usr/bin/clang")
-set(CMAKE_C_FLAGS "")
+set(CMAKE_C_FLAGS "") # -x objective-c
 
 set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-set(CMAKE_CXX_FLAGS "-stdlib=libstdc++ -D__MACOSX_CORE__")
+set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-stdlib=libstdc++
 
 set(CMAKE_OSX_ARCHITECTURES i386)
 add_compile_options(-Wno-deprecated-declarations)
+#set(CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS} -undefined dynamic_lookup")
 # ==========================================================
 
 # ===================== Source Files =====================
@@ -59,6 +60,7 @@ ADD_CUSTOM_COMMAND(TARGET ${APP_NAME}
         POST_BUILD
         COMMAND ${CMAKE_INSTALL_NAME_TOOL}
         ARGS -change "@rpath/libopenFrameworks.dylib" "@loader_path/../Frameworks/libopenFrameworks.dylib" $<TARGET_FILE:${APP_NAME}>
+#        ARGS $<TARGET_FILE:${APP_NAME}>
 )
 
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_INFO_STRING "Cmake openFrameworks CLion test app")
@@ -68,6 +70,6 @@ set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_LONG_VERSION_STRING "
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME ${BUNDLE_NAME})
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_SHORT_VERSION_STRING 0.0.1)
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION 0.0.1)
-set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_COPYRIGHT "(c) kureta 2015")
+set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_COPYRIGHT "--YOUR NAME HERE--")
 set_target_properties(${APP_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 # ================================================
