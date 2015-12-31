@@ -27,7 +27,9 @@ set(SOURCE_FILES
 # ========================================================
 
 # =========== Set Global Properties ==============
-include(addons.cmake)
+if (EXISTS "addons.cmake")
+    include(addons.cmake)
+endif ()
 include(openFrameworks.cmake)
 # ================================================
 
