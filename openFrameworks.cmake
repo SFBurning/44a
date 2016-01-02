@@ -1,6 +1,6 @@
 # ===================== Source Files =====================
 set(OF_SOURCE_FILES
-        ${OF_DIRECTORY}/libs/openFrameworks/ofMain.h
+#        ${OF_DIRECTORY}/libs/openFrameworks/ofMain.h
         ${OF_DIRECTORY}/libs/openFrameworks/3d/of3dPrimitives.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/of3dUtils.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/ofCamera.cpp
