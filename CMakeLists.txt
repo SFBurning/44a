@@ -48,7 +48,7 @@ include(openFrameworks.cmake)
 # ============ Compile and Link ==================
 add_executable(${APP_NAME} MACOSX_BUNDLE ${SOURCE_FILES})
 add_dependencies(${APP_NAME} of_shared)
-target_link_libraries(${APP_NAME} $<TARGET_FILE:of_shared>)
+target_link_libraries(${APP_NAME} $<TARGET_FILE:of_shared> ${opengl_lib})
 # ================================================
 
 # ============ MACOSX_BUNDLE Settings ============
