@@ -75,7 +75,7 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY}/libs/openFrameworks/video/ofQuickTimeGrabber.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/video/ofQuickTimePlayer.cpp
 
-        ### Not working right now ###
+        ### TODO: Not working right now ###
 
         #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowGrabber.cpp
         #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowPlayer.cpp
