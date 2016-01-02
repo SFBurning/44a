@@ -147,7 +147,7 @@ set(LIB_BOOST_2 ${OF_DIRECTORY}/libs/boost/lib/osx/boost_filesystem.a) # new in 
 set(LIB_BOOST_3 ${OF_DIRECTORY}/libs/boost/lib/osx/boost_system.a)     # new in oF 0.9
 
 # Updated list
-set(OF_CORE_LIBS ${LIB_POCO_1} ${LIB_POCO_2} ${LIB_POCO_3} ${LIB_POCO_4} ${LIB_POCO_5} ${LIB_POCO_6} ${LIB_POCO_7} ${LIB_POCO_8} ${LIB_POCO_9} ${LIB_POCO_10} ${LIB_POCO_11} ${LIB_TESS} ${LIB_GLEW} ${LIB_CAIRO1} ${LIB_CAIRO2} ${LIB_CAIRO3} ${LIB_FMODEX} ${LIB_RTAUDIO} ${LIB_OPENSSL1} ${LIB_OPENSSL2} ${LIB_GLFW} ${LIB_FREEIMAGE} ${LIB_FREETYPE} ${LIB_BOOST_1} ${LIB_BOOST_3})
+set(OF_CORE_LIBS ${glut_lib} ${LIB_POCO_1} ${LIB_POCO_2} ${LIB_POCO_3} ${LIB_POCO_4} ${LIB_POCO_5} ${LIB_POCO_6} ${LIB_POCO_7} ${LIB_POCO_8} ${LIB_POCO_9} ${LIB_POCO_10} ${LIB_POCO_11} ${LIB_TESS} ${LIB_GLEW} ${LIB_CAIRO1} ${LIB_CAIRO2} ${LIB_CAIRO3} ${LIB_FMODEX} ${LIB_RTAUDIO} ${LIB_OPENSSL1} ${LIB_OPENSSL2} ${LIB_GLFW} ${LIB_FREEIMAGE} ${LIB_FREETYPE} ${LIB_BOOST_1} ${LIB_BOOST_3})
 # ================================================
 
 # ===================== System Frameworks =====================
@@ -185,7 +185,6 @@ set(OF_CORE_FRAMEWORKS
         ${corevideo_lib}
         ${qtkit_lib}
         ${cocoa_lib}
-        ${glut_lib}
         ${coremedia_lib}     # new in oF 0.9
         ${avfoundation_lib}  # new in oF 0.9
         ${quartzcore_lib}    # new in oF 0.9
