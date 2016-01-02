@@ -1,13 +1,11 @@
 # ===================== Source Files =====================
 set(OF_SOURCE_FILES
-#        ${OF_DIRECTORY}/libs/openFrameworks/ofMain.h
         ${OF_DIRECTORY}/libs/openFrameworks/3d/of3dPrimitives.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/of3dUtils.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/ofCamera.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/ofEasyCam.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/ofMesh.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/3d/ofNode.cpp
-#       ${OF_DIRECTORY}/libs/openFrameworks/app/ofAppEGLWindow.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/app/ofAppGLFWWindow.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/app/ofAppGlutWindow.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/app/ofAppNoWindow.cpp
@@ -127,7 +125,6 @@ set(LIB_FREETYPE ${OF_DIRECTORY}/libs/freetype/lib/osx/freetype.a)
 set(LIB_GLEW ${OF_DIRECTORY}/libs/glew/lib/osx/glew.a)
 set(LIB_POCO_1 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoCrypto.a)
 set(LIB_POCO_2 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoData.a)
-#set(LIB_POCO_3 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoDataODBC.a)      # deprecated in oF 0.9
 set(LIB_POCO_3 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoJSON.a)           # new in oF 0.9
 set(LIB_POCO_4 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoDataSQLite.a)
 set(LIB_POCO_5 ${OF_DIRECTORY}/libs/poco/lib/osx/PocoFoundation.a)
@@ -168,7 +165,6 @@ find_library(quicktime_lib QuickTime)
 find_library(corevideo_lib CoreVideo)
 find_library(qtkit_lib QTKit)
 find_library(cocoa_lib Cocoa)
-# find_library(glut_lib GLUT)
 find_library(coremedia_lib CoreMedia)       # new in oF 0.9
 find_library(avfoundation_lib AVFoundation) # new in oF 0.9
 find_library(quartzcore_lib QuartzCore)     # new in oF 0.9
@@ -201,12 +197,10 @@ set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-x obje
 add_library(core OBJECT ${OF_SOURCE_FILES})
 
 add_library(static STATIC $<TARGET_OBJECTS:core>)
-# set_target_properties(static PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR} -framework OpenGL") # Removed "-stdlib=libstdc++
 set_target_properties(static PROPERTIES OUTPUT_NAME openFrameworks)
 target_link_libraries(static ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS})
 
 add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
-# set_target_properties(of_shared PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR}") # Removed "-stdlib=libstdc++
 set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/${APP_NAME}.app/Contents/Frameworks)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)
 target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS})
@@ -222,12 +216,3 @@ ADD_CUSTOM_COMMAND(TARGET of_shared
         COMMAND /bin/cp
         ARGS ${LIB_FMODEX} ${PROJECT_SOURCE_DIR}/bin/${APP_NAME}.app/Contents/Frameworks
 )
-
-#ADD_CUSTOM_COMMAND( # Copy oF's GLUT.framework
-#        TARGET of_shared
-#        POST_BUILD
-#        COMMAND /usr/bin/python
-#        ARGS ${PROJECT_SOURCE_DIR}/utils/copyFrameworks.py
-#        --app ${PROJECT_SOURCE_DIR}/bin/${APP_NAME}.app
-#        --framework ${glut_lib}
-#)

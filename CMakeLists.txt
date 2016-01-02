@@ -17,7 +17,6 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++ -D__MACOSX_CORE__") # Removed "-s
 
 set(CMAKE_OSX_ARCHITECTURES i386)
 add_compile_options(-Wno-deprecated-declarations)
-#set(CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS} -undefined dynamic_lookup")
 # ==========================================================
 
 # ===================== Source Files =====================
@@ -51,23 +50,14 @@ add_dependencies(${APP_NAME} of_shared)
 target_link_libraries(${APP_NAME} $<TARGET_FILE:of_shared> ${opengl_lib})
 # ================================================
 
-# ============ MACOSX_BUNDLE Settings ============
-#set_source_files_properties( # Copy app icon
-#        resources/icon-debug.icns
-#        PROPERTIES
-#        MACOSX_PACKAGE_LOCATION Resources
-#)
 
 ADD_CUSTOM_COMMAND(TARGET ${APP_NAME}
         POST_BUILD
         COMMAND ${CMAKE_INSTALL_NAME_TOOL}
         ARGS -change "@rpath/libopenFrameworks.dylib" "@loader_path/../Frameworks/libopenFrameworks.dylib" $<TARGET_FILE:${APP_NAME}>
-#        ARGS $<TARGET_FILE:${APP_NAME}>
 )
 
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_INFO_STRING "Cmake openFrameworks CLion test app")
-#set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_ICON_FILE icon-debug.icns)
-# set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_GUI_IDENTIFIER)
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_LONG_VERSION_STRING "0.0.1 pre-release alpha")
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME ${BUNDLE_NAME})
 set_target_properties(${APP_NAME} PROPERTIES MACOSX_BUNDLE_SHORT_VERSION_STRING 0.0.1)
