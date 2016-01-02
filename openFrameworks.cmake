@@ -119,6 +119,7 @@ set(OF_CORE_HEADERS ${HEADER_OF_0} ${HEADER_OF_1} ${HEADER_OF_2} ${HEADER_OF_3} 
 # ========================================================
 
 # ===================== Libs =====================
+set(glut_lib "${OF_DIRECTORY}/libs/glut/lib/osx/GLUT.framework")       # Use oF's GLUT
 set(LIB_FMODEX ${OF_DIRECTORY}/libs/fmodex/lib/osx/libfmodex.dylib)
 set(LIB_GLFW ${OF_DIRECTORY}/libs/glfw/lib/osx/glfw3.a)                # Renamed in oF 0.9
 set(LIB_FREEIMAGE ${OF_DIRECTORY}/libs/FreeImage/lib/osx/freeimage.a)
@@ -167,7 +168,7 @@ find_library(quicktime_lib QuickTime)
 find_library(corevideo_lib CoreVideo)
 find_library(qtkit_lib QTKit)
 find_library(cocoa_lib Cocoa)
-find_library(glut_lib GLUT)
+# find_library(glut_lib GLUT)
 find_library(coremedia_lib CoreMedia)       # new in oF 0.9
 find_library(avfoundation_lib AVFoundation) # new in oF 0.9
 find_library(quartzcore_lib QuartzCore)     # new in oF 0.9
@@ -200,12 +201,12 @@ set_source_files_properties(${OF_SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-x obje
 add_library(core OBJECT ${OF_SOURCE_FILES})
 
 add_library(static STATIC $<TARGET_OBJECTS:core>)
-set_target_properties(static PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR} -framework OpenGL") # Removed "-stdlib=libstdc++
+# set_target_properties(static PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR} -framework OpenGL") # Removed "-stdlib=libstdc++
 set_target_properties(static PROPERTIES OUTPUT_NAME openFrameworks)
 target_link_libraries(static ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS})
 
 add_library(of_shared SHARED $<TARGET_OBJECTS:core>)
-set_target_properties(of_shared PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR}") # Removed "-stdlib=libstdc++
+# set_target_properties(of_shared PROPERTIES LINK_FLAGS "-arch i386 -F'${OF_DIRECTORY}/libs/glut/lib/osx/' -F${FRAMEWORKS_DIR}") # Removed "-stdlib=libstdc++
 set_target_properties(of_shared PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/${APP_NAME}.app/Contents/Frameworks)
 set_target_properties(of_shared PROPERTIES OUTPUT_NAME openFrameworks)
 target_link_libraries(of_shared ${OF_CORE_FRAMEWORKS} ${OF_ADDON_FRAMEWORKS} ${OF_CORE_LIBS})
