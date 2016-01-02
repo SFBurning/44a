@@ -75,13 +75,14 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY}/libs/openFrameworks/video/ofQuickTimeGrabber.cpp
         ${OF_DIRECTORY}/libs/openFrameworks/video/ofQuickTimePlayer.cpp
 
-        ### TODO: Not working right now ###
-
-        #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowGrabber.cpp
-        #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowPlayer.cpp
-        #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstUtils.cpp
-        #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstVideoGrabber.cpp
-        #        ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstVideoPlayer.cpp
+        # TODO: Not working right now
+        # ======== For Windows ========
+        # ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowGrabber.cpp
+        # ${OF_DIRECTORY}/libs/openFrameworks/video/ofDirectShowPlayer.cpp
+        # ======== For Linux ========
+        # ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstUtils.cpp
+        # ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstVideoGrabber.cpp
+        # ${OF_DIRECTORY}/libs/openFrameworks/video/ofGstVideoPlayer.cpp
         )
 # ========================================================
 
