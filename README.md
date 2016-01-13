@@ -16,6 +16,6 @@ At the time of writing this, I was on OSX 10.11. If you find this when you're on
 (Mostly) works with openFrameworks 0.9 on OSX 10.11, with CLion 1.2. 
 
 ## Credits
-All the cmake credit goes to kureta (https://gist.github.com/kureta/b764cb130dafb91375d6). He's put in a lot of effort to get it working smoothly. Kudos @kureta!
+All the cmake credit goes to kureta (https://gist.github.com/kureta/b764cb130dafb91375d6). He/she's put in a lot of effort to get it working smoothly. Kudos @kureta!
 
 Forked from @judepereia's '44a' project file, and updated for partial compatibility with of 0.9. Thanks, Jude!
