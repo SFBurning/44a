@@ -40,6 +40,11 @@ void ofApp::draw() {
     ofDrawSphere(0, 0, 0, 200);
 
     ofPopMatrix();
+
+    glPointSize(20.0f);
+    glBegin(GL_POINTS);
+    glVertex3f(100.0f, 100.0f, 0.0f);
+    glEnd();
 }
 
 //--------------------------------------------------------------

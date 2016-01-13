@@ -19,7 +19,3 @@ At the time of writing this, I was on OSX 10.11. If you find this when you're on
 All the cmake credit goes to kureta (https://gist.github.com/kureta/b764cb130dafb91375d6). He's put in a lot of effort to get it working smoothly. Kudos @kureta!
 
 Forked from @judepereia's '44a' project file, and updated for partial compatibility with of 0.9. Thanks, Jude!
-
-## Problems
-
-Can't seem to resolve raw GL functions, ie ```glPushMatrix```. Seems to be a problem with either GLUT or GLEW-- if anyone knows how to resolve this, please send along a tip or pull request! 
